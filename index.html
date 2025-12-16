@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<title>AI Literacy Pilot</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; }
+button { padding: 10px; margin-top: 10px; }
+#aiResponse { margin-top: 20px; }
+</style>
+</head>
+<body>
+<h1>AI Literacy Pilot</h1>
+
+<!-- Child Input -->
+<label for="childInput">Shkruaj ose thuaj fjalën:</label><br>
+<textarea id="childInput" rows="3" cols="50"></textarea><br>
+
+<!-- Buttons -->
+<button onclick="sendToAI()">Dërgo te AI</button>
+<button onclick="playVoice()">Luaj Zërin e AI</button>
+
+<!-- AI Response -->
+<div id="aiResponse"></div>
+
+<script>
+let aiText = "";
+
+// Placeholder AI call (replace later with OpenAI API)
+function sendToAI() {
+    const input = document.getElementById("childInput").value;
+    aiText = "AI thotë: “Mirë! Ti shkruajte: " + input + "”";
+    document.getElementById("aiResponse").innerText = aiText;
+}
+
+// Placeholder TTS (replace later with OpenAI TTS)
+function playVoice() {
+    if (!aiText) { alert("Së pari dërgo tek AI"); return; }
+    const msg = new SpeechSynthesisUtterance(aiText);
+    msg.lang = "sq-AL";
+    msg.rate = 0.9; // slower for children
+    window.speechSynthesis.speak(msg);
+}
+</script>
+</body>
+</html>
